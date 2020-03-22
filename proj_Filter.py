@@ -7,6 +7,7 @@ Created on Sun Mar 22 16:29:58 2020
 
 import numpy as np
 
+
 def FilterMul(mat, fil):
     s = (mat.shape[0]-2,mat.shape[1]-2)
     c = np.zeros(s)
@@ -17,16 +18,12 @@ def FilterMul(mat, fil):
             c[i,j] += mat[i+2,j]*fil[2,0]+mat[i+2,j+1]*fil[2,1]+mat[i+2,j+2]*fil[2,2]
     return c
             
-
-
-
+    
 def main():
     mat = np.random.rand(8,8)
     for a in mat:
         a *= 5
-        i=1
     while(mat.shape[0] > 3):
-        print(i)
         fil = np.random.rand(3,3)
         mat = FilterMul(mat,fil)
     print(mat)
